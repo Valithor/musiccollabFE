@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: any) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:4000/refresh_token", {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}refresh_token`, {
       method: "POST",
       credentials: "include"
     }).then(async x => {
