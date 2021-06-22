@@ -1,0 +1,9 @@
+fragment RegularUserTokenResponse on LoginResponse {
+  errors {
+    ...RegularError
+  }
+  accessToken
+  user {
+    ...RegularUser
+  }
+}
