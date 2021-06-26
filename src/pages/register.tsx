@@ -24,8 +24,8 @@ export const Register: React.FC<registerProps> = ({ }) => {
                         setErrors(toErrorMap(response.data.register.errors));
                     }else if (response.data?.register.user){
                         setAccessToken(response.data.register.accessToken as string);                
-                        window.location.reload();        
                         router.push("/");
+                        window.location.reload();
                     }
                 }}
             >

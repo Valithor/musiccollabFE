@@ -27,12 +27,12 @@ const Login: React.FC<{}> = ({ }) => {
                         await setAccessToken(response.data.login.accessToken as string);                        
                         setLocation({ location: "Online" });
                         // localStorage.setItem()
-                        window.location.reload();
                         if (typeof router.query.next === "string") {
                             router.push(router.query.next);
                         } else {
                             router.push("/");
                         }
+                        window.location.reload();
                     }
                 }}
             >
