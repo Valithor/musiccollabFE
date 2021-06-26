@@ -32,7 +32,6 @@ const Login: React.FC<{}> = ({ }) => {
                         } else {
                             router.push("/");
                         }
-                        window.location.reload();
                     }
                 }}
             >
