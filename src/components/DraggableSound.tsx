@@ -31,7 +31,7 @@ const DraggableSound = ({sounds}:DraggableSoundProps) => {
                         provided.draggableProps.style
                       )}
                     >
-                      <MusicItem song={item.content} name={item.content.substring(22, item.content.length-4)}/>
+                      <MusicItem song={item.content} name={item.content.replace(process.env.NEXT_PUBLIC_API_URL as string, "")}/>
                     </div>
                   )}
                 </Draggable>
