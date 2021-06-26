@@ -23,10 +23,9 @@ export const Room: React.FC<roomProps> = ({ }) => {
         [{ data, error, fetching }] = useGetRoomFromUrl(),
         [concatFile, setConcatFile] = useState(false),
         [{ data: subData }] = useRoomChangesSubscription(),
-        [{data: userSubData}] = useUserChangesSubscription();
+        [{data: _userSubData}] = useUserChangesSubscription();
     let link;
-    console.log(userSubData)
-
+    
     const createdItem = (id: number) => {
         link = process.env.NEXT_PUBLIC_API_URL + `outputs/${id}.mp3?${Date.now().toString()}`;
         const isCreated = new Request(link);
@@ -82,7 +81,7 @@ export const Room: React.FC<roomProps> = ({ }) => {
                             {concatFile && link ? <MusicItem song={link} name={data.room.name} /> : null}
                         </Box>
                     </Flex>
-                    <EditingRoom soundsData={soundsData} id={data.room.id} preloadSounds={subData ? subData.roomChanges.roomSounds : data.room.roomSounds} />
+                    <EditingRoom soundsData={soundsData} id={data.room.id} preloadSounds={subData && subData.roomChanges.id===data.room.id ? subData.roomChanges.roomSounds : data.room.roomSounds} />
                     <Button
                         mt={4}
                         type="submit"
