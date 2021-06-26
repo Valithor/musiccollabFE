@@ -24,7 +24,7 @@ const Login: React.FC<{}> = ({ }) => {
                         setErrors(toErrorMap(response.data.login.errors));
                     } else if (response.data?.login.user) {
 
-                        setAccessToken(response.data.login.accessToken as string);                        
+                        await setAccessToken(response.data.login.accessToken as string);                        
                         setLocation({ location: "Online" });
                         // localStorage.setItem()
                         if (typeof router.query.next === "string") {
